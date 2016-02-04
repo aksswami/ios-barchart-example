@@ -40,8 +40,8 @@ class ViewController: UIViewController, ChartViewDelegate {
         barChartView.drawGridBackgroundEnabled = true
         
         barChartView.scaleYEnabled = false
-        barChartView.setVisibleXRangeMaximum(0.25)
-        barChartView.setVisibleXRange(minXRange: 0.25, maxXRange: 0.50)
+        barChartView.setVisibleXRangeMaximum(0.18)
+        
         barChartView.rightAxis.enabled = false
         
         let xAxis: ChartXAxis = barChartView.xAxis
@@ -51,6 +51,8 @@ class ViewController: UIViewController, ChartViewDelegate {
         xAxis.drawGridLinesEnabled = false
         xAxis.drawAxisLineEnabled = true
         xAxis.drawLabelsEnabled = true
+        
+        
         
         
         let leftAxis: ChartYAxis = barChartView.leftAxis
@@ -78,6 +80,7 @@ class ViewController: UIViewController, ChartViewDelegate {
         barChartView.backgroundColor = UIColor(red: 0.161, green: 0.161, blue: 0.161, alpha: 1.00)
         barChartView.gridBackgroundColor = UIColor(red: 0.161, green: 0.161, blue: 0.161, alpha: 1.00)
         barChartView.highlightPerTapEnabled = false
+        barChartView.moveViewToX(100)
         
     }
     
@@ -93,7 +96,7 @@ class ViewController: UIViewController, ChartViewDelegate {
         let dataSet: BarChartDataSet = BarChartDataSet(yVals: yVals, label: "DataSet")
         dataSet.colors = [UIColor(red: 0.812, green: 0.200, blue: 0.086, alpha: 1.00), UIColor(red: 0.494, green: 0.133, blue: 0.067, alpha: 1.00)]
         dataSet.valueTextColor = UIColor.whiteColor()
-
+        dataSet.barSpace = 0.5
         barChartView.data = BarChartData(xVals: xVals, dataSet: dataSet)
     }
 
