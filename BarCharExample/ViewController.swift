@@ -47,7 +47,7 @@ class ViewController: UIViewController, ChartViewDelegate {
         let xAxis: ChartXAxis = barChartView.xAxis
         xAxis.labelPosition = ChartXAxis.XAxisLabelPosition.Bottom
         xAxis.labelFont = UIFont.systemFontOfSize(10)
-        xAxis.labelTextColor = UIColor.blackColor()
+        xAxis.labelTextColor = UIColor.whiteColor()
         xAxis.drawGridLinesEnabled = false
         xAxis.drawAxisLineEnabled = true
         xAxis.drawLabelsEnabled = true
@@ -56,6 +56,7 @@ class ViewController: UIViewController, ChartViewDelegate {
         let leftAxis: ChartYAxis = barChartView.leftAxis
         leftAxis.labelFont = UIFont.systemFontOfSize(10)
         leftAxis.labelCount = 8
+        leftAxis.labelTextColor = UIColor.whiteColor()
         leftAxis.valueFormatter = NSNumberFormatter()
         leftAxis.valueFormatter?.maximumFractionDigits = 0;
         leftAxis.valueFormatter?.negativeSuffix = " hr"
@@ -63,6 +64,7 @@ class ViewController: UIViewController, ChartViewDelegate {
         leftAxis.labelPosition = ChartYAxis.YAxisLabelPosition.OutsideChart
         leftAxis.spaceTop = 0.15
         leftAxis.drawLabelsEnabled = true
+        leftAxis.drawAxisLineEnabled = false
         leftAxis.drawLimitLinesBehindDataEnabled = true
         leftAxis.gridLineDashLengths = [2.0]
         barChartView.leftYAxisRenderer = YAxisRenderer(viewPortHandler: barChartView.viewPortHandler, yAxis: leftAxis, transformer: barChartView._leftAxisTransformer)
@@ -73,6 +75,9 @@ class ViewController: UIViewController, ChartViewDelegate {
         barChartView.legend.font = UIFont.systemFontOfSize(11)
         barChartView.legend.xEntrySpace = 2.0
         barChartView.drawValueAboveBarEnabled = true
+        barChartView.backgroundColor = UIColor(red: 0.161, green: 0.161, blue: 0.161, alpha: 1.00)
+        barChartView.gridBackgroundColor = UIColor(red: 0.161, green: 0.161, blue: 0.161, alpha: 1.00)
+        barChartView.highlightPerTapEnabled = false
         
     }
     
@@ -86,7 +91,8 @@ class ViewController: UIViewController, ChartViewDelegate {
             xVals.append("\(i)")
         }
         let dataSet: BarChartDataSet = BarChartDataSet(yVals: yVals, label: "DataSet")
-        dataSet.colors = [UIColor.orangeColor(), ChartColorTemplates.vordiplom()[2]]
+        dataSet.colors = [UIColor(red: 0.812, green: 0.200, blue: 0.086, alpha: 1.00), UIColor(red: 0.494, green: 0.133, blue: 0.067, alpha: 1.00)]
+        dataSet.valueTextColor = UIColor.whiteColor()
 
         barChartView.data = BarChartData(xVals: xVals, dataSet: dataSet)
     }
