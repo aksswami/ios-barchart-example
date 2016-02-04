@@ -64,12 +64,15 @@ class ViewController: UIViewController, ChartViewDelegate {
         leftAxis.spaceTop = 0.15
         leftAxis.drawLabelsEnabled = true
         leftAxis.drawLimitLinesBehindDataEnabled = true
+        leftAxis.gridLineDashLengths = [2.0]
+        barChartView.leftYAxisRenderer = YAxisRenderer(viewPortHandler: barChartView.viewPortHandler, yAxis: leftAxis, transformer: barChartView._leftAxisTransformer)
         
         barChartView.legend.position = ChartLegend.ChartLegendPosition.AboveChartCenter
         barChartView.legend.form = ChartLegend.ChartLegendForm.Square
         barChartView.legend.formSize = 9.0
         barChartView.legend.font = UIFont.systemFontOfSize(11)
         barChartView.legend.xEntrySpace = 2.0
+        barChartView.drawValueAboveBarEnabled = true
         
     }
     
@@ -78,12 +81,13 @@ class ViewController: UIViewController, ChartViewDelegate {
         
         var yVals = [BarChartDataEntry]()
         for i in 1...30 {
-            let val = Double(arc4random_uniform(10)) * 100
-            yVals.append(BarChartDataEntry(value: val, xIndex: i))
+            let val = Double(arc4random_uniform(10))
+            yVals.append(BarChartDataEntry(values: [val, val+10], xIndex: i))
             xVals.append("\(i)")
         }
         let dataSet: BarChartDataSet = BarChartDataSet(yVals: yVals, label: "DataSet")
-        
+        dataSet.colors = [UIColor.orangeColor(), ChartColorTemplates.vordiplom()[2]]
+
         barChartView.data = BarChartData(xVals: xVals, dataSet: dataSet)
     }
 

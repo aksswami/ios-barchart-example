@@ -105,6 +105,7 @@
 		09371B201C636DDB002FB4B4 /* ChartTransformerHorizontalBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09371AC51C636DDB002FB4B4 /* ChartTransformerHorizontalBarChart.swift */; };
 		09371B211C636DDB002FB4B4 /* ChartUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09371AC61C636DDB002FB4B4 /* ChartUtils.swift */; };
 		09371B221C636DDB002FB4B4 /* ChartViewPortHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09371AC71C636DDB002FB4B4 /* ChartViewPortHandler.swift */; };
+		09371B251C63E7E0002FB4B4 /* YAxisRenderer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09371B241C63E7E0002FB4B4 /* YAxisRenderer+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -229,6 +230,7 @@
 		09371AC51C636DDB002FB4B4 /* ChartTransformerHorizontalBarChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartTransformerHorizontalBarChart.swift; sourceTree = "<group>"; };
 		09371AC61C636DDB002FB4B4 /* ChartUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartUtils.swift; sourceTree = "<group>"; };
 		09371AC71C636DDB002FB4B4 /* ChartViewPortHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartViewPortHandler.swift; sourceTree = "<group>"; };
+		09371B241C63E7E0002FB4B4 /* YAxisRenderer+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "YAxisRenderer+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -321,6 +323,7 @@
 				09371AA31C636DDB002FB4B4 /* Interfaces */,
 				09371AAB1C636DDB002FB4B4 /* Renderers */,
 				09371AC11C636DDB002FB4B4 /* Utils */,
+				09371B241C63E7E0002FB4B4 /* YAxisRenderer+.swift */,
 			);
 			name = iOSCharts;
 			path = Classes;
@@ -657,6 +660,7 @@
 				09371B1E1C636DDB002FB4B4 /* ChartSelectionDetail.swift in Sources */,
 				09371AFF1C636DDB002FB4B4 /* CombinedHighlighter.swift in Sources */,
 				09371B031C636DDB002FB4B4 /* BubbleChartDataProvider.swift in Sources */,
+				09371B251C63E7E0002FB4B4 /* YAxisRenderer+.swift in Sources */,
 				09371B1C1C636DDB002FB4B4 /* ScatterChartRenderer.swift in Sources */,
 				09371ACC1C636DDB002FB4B4 /* BubbleChartView.swift in Sources */,
 				09371B1B1C636DDB002FB4B4 /* RadarChartRenderer.swift in Sources */,
