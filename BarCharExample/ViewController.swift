@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Darwin
 
 class ViewController: UIViewController, ChartViewDelegate {
 
@@ -14,6 +15,7 @@ class ViewController: UIViewController, ChartViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         chartViewSetUp()
+        barChartData()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -29,17 +31,26 @@ class ViewController: UIViewController, ChartViewDelegate {
         barChartView.noDataTextDescription = "You need to provide data for the chart."
         
         barChartView.drawBarShadowEnabled = false
-        barChartView.drawValueAboveBarEnabled = true
+        barChartView.drawValueAboveBarEnabled = false
         
-        barChartView.maxVisibleValueCount = 100
+        
+        barChartView.maxVisibleValueCount = 10
         barChartView.pinchZoomEnabled = false
-        barChartView.drawGridBackgroundEnabled = false
+        barChartView.doubleTapToZoomEnabled = false
+        barChartView.drawGridBackgroundEnabled = true
+        
+        barChartView.scaleYEnabled = false
+        barChartView.setVisibleXRangeMaximum(0.25)
+        barChartView.setVisibleXRange(minXRange: 0.25, maxXRange: 0.50)
+        barChartView.rightAxis.enabled = false
         
         let xAxis: ChartXAxis = barChartView.xAxis
         xAxis.labelPosition = ChartXAxis.XAxisLabelPosition.Bottom
         xAxis.labelFont = UIFont.systemFontOfSize(10)
+        xAxis.labelTextColor = UIColor.blackColor()
         xAxis.drawGridLinesEnabled = false
-        xAxis.spaceBetweenLabels = 2
+        xAxis.drawAxisLineEnabled = true
+        xAxis.drawLabelsEnabled = true
         
         
         let leftAxis: ChartYAxis = barChartView.leftAxis
@@ -51,14 +62,31 @@ class ViewController: UIViewController, ChartViewDelegate {
         leftAxis.valueFormatter?.positiveSuffix = " hr"
         leftAxis.labelPosition = ChartYAxis.YAxisLabelPosition.OutsideChart
         leftAxis.spaceTop = 0.15
+        leftAxis.drawLabelsEnabled = true
+        leftAxis.drawLimitLinesBehindDataEnabled = true
         
         barChartView.legend.position = ChartLegend.ChartLegendPosition.AboveChartCenter
         barChartView.legend.form = ChartLegend.ChartLegendForm.Square
         barChartView.legend.formSize = 9.0
         barChartView.legend.font = UIFont.systemFontOfSize(11)
-        barChartView.legend.xEntrySpace = 4.0
+        barChartView.legend.xEntrySpace = 2.0
+        
     }
     
+    func barChartData() {
+        var xVals = [String]()
+        
+        var yVals = [BarChartDataEntry]()
+        for i in 1...30 {
+            let val = Double(arc4random_uniform(10)) * 100
+            yVals.append(BarChartDataEntry(value: val, xIndex: i))
+            xVals.append("\(i)")
+        }
+        let dataSet: BarChartDataSet = BarChartDataSet(yVals: yVals, label: "DataSet")
+        
+        barChartView.data = BarChartData(xVals: xVals, dataSet: dataSet)
+    }
 
+    
 }
 
