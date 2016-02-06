@@ -106,6 +106,9 @@
 		09371B211C636DDB002FB4B4 /* ChartUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09371AC61C636DDB002FB4B4 /* ChartUtils.swift */; };
 		09371B221C636DDB002FB4B4 /* ChartViewPortHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09371AC71C636DDB002FB4B4 /* ChartViewPortHandler.swift */; };
 		09371B251C63E7E0002FB4B4 /* YAxisRenderer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09371B241C63E7E0002FB4B4 /* YAxisRenderer+.swift */; };
+		09371B271C64A3EB002FB4B4 /* BarChartMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09371B261C64A3EB002FB4B4 /* BarChartMarker.swift */; };
+		09371B291C64DBEC002FB4B4 /* Timesheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09371B281C64DBEC002FB4B4 /* Timesheet.swift */; };
+		09371B2B1C660C3A002FB4B4 /* NSDate+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09371B2A1C660C3A002FB4B4 /* NSDate+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -230,7 +233,10 @@
 		09371AC51C636DDB002FB4B4 /* ChartTransformerHorizontalBarChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartTransformerHorizontalBarChart.swift; sourceTree = "<group>"; };
 		09371AC61C636DDB002FB4B4 /* ChartUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartUtils.swift; sourceTree = "<group>"; };
 		09371AC71C636DDB002FB4B4 /* ChartViewPortHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartViewPortHandler.swift; sourceTree = "<group>"; };
-		09371B241C63E7E0002FB4B4 /* YAxisRenderer+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "YAxisRenderer+.swift"; sourceTree = "<group>"; };
+		09371B241C63E7E0002FB4B4 /* YAxisRenderer+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "YAxisRenderer+.swift"; path = "Classes/YAxisRenderer+.swift"; sourceTree = "<group>"; };
+		09371B261C64A3EB002FB4B4 /* BarChartMarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarChartMarker.swift; sourceTree = "<group>"; };
+		09371B281C64DBEC002FB4B4 /* Timesheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timesheet.swift; sourceTree = "<group>"; };
+		09371B2A1C660C3A002FB4B4 /* NSDate+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -284,6 +290,10 @@
 				09371A621C636DDB002FB4B4 /* iOSCharts */,
 				09371A341C636931002FB4B4 /* AppDelegate.swift */,
 				09371A361C636931002FB4B4 /* ViewController.swift */,
+				09371B241C63E7E0002FB4B4 /* YAxisRenderer+.swift */,
+				09371B261C64A3EB002FB4B4 /* BarChartMarker.swift */,
+				09371B281C64DBEC002FB4B4 /* Timesheet.swift */,
+				09371B2A1C660C3A002FB4B4 /* NSDate+.swift */,
 				09371A381C636931002FB4B4 /* Main.storyboard */,
 				09371A3B1C636931002FB4B4 /* Assets.xcassets */,
 				09371A3D1C636931002FB4B4 /* LaunchScreen.storyboard */,
@@ -323,7 +333,6 @@
 				09371AA31C636DDB002FB4B4 /* Interfaces */,
 				09371AAB1C636DDB002FB4B4 /* Renderers */,
 				09371AC11C636DDB002FB4B4 /* Utils */,
-				09371B241C63E7E0002FB4B4 /* YAxisRenderer+.swift */,
 			);
 			name = iOSCharts;
 			path = Classes;
@@ -625,6 +634,7 @@
 				09371ADF1C636DDB002FB4B4 /* BarChartDataSet.swift in Sources */,
 				09371AE21C636DDB002FB4B4 /* BubbleChartData.swift in Sources */,
 				09371AE51C636DDB002FB4B4 /* CandleChartData.swift in Sources */,
+				09371B2B1C660C3A002FB4B4 /* NSDate+.swift in Sources */,
 				09371AEE1C636DDB002FB4B4 /* LineRadarChartDataSet.swift in Sources */,
 				09371AD31C636DDB002FB4B4 /* PieRadarChartViewBase.swift in Sources */,
 				09371B141C636DDB002FB4B4 /* ChartYAxisRendererHorizontalBarChart.swift in Sources */,
@@ -671,6 +681,7 @@
 				09371AF91C636DDB002FB4B4 /* ChartFillFormatter.swift in Sources */,
 				09371B191C636DDB002FB4B4 /* LineScatterCandleRadarChartRenderer.swift in Sources */,
 				09371B221C636DDB002FB4B4 /* ChartViewPortHandler.swift in Sources */,
+				09371B291C64DBEC002FB4B4 /* Timesheet.swift in Sources */,
 				09371AE91C636DDB002FB4B4 /* ChartDataEntry.swift in Sources */,
 				09371AD61C636DDB002FB4B4 /* ChartAxisBase.swift in Sources */,
 				09371AFB1C636DDB002FB4B4 /* BarChartHighlighter.swift in Sources */,
@@ -710,6 +721,7 @@
 				09371AE01C636DDB002FB4B4 /* BarLineScatterCandleBubbleChartData.swift in Sources */,
 				09371AE11C636DDB002FB4B4 /* BarLineScatterCandleBubbleChartDataSet.swift in Sources */,
 				09371ADD1C636DDB002FB4B4 /* BarChartData.swift in Sources */,
+				09371B271C64A3EB002FB4B4 /* BarChartMarker.swift in Sources */,
 				09371AEC1C636DDB002FB4B4 /* LineChartData.swift in Sources */,
 				09371B131C636DDB002FB4B4 /* ChartYAxisRenderer.swift in Sources */,
 				09371B021C636DDB002FB4B4 /* BarLineScatterCandleBubbleChartDataProvider.swift in Sources */,

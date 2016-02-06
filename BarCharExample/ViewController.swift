@@ -76,11 +76,15 @@ class ViewController: UIViewController, ChartViewDelegate {
         barChartView.legend.formSize = 9.0
         barChartView.legend.font = UIFont.systemFontOfSize(11)
         barChartView.legend.xEntrySpace = 2.0
-        barChartView.drawValueAboveBarEnabled = true
+
         barChartView.backgroundColor = UIColor(red: 0.161, green: 0.161, blue: 0.161, alpha: 1.00)
         barChartView.gridBackgroundColor = UIColor(red: 0.161, green: 0.161, blue: 0.161, alpha: 1.00)
-        barChartView.highlightPerTapEnabled = false
+        barChartView.highlightPerTapEnabled = true
         barChartView.moveViewToX(100)
+        barChartView.drawMarkers = true
+        let chartMarker = BarChartMarker.init(color: UIColor.whiteColor(), insets: UIEdgeInsets(top: 8.0, left: 8.0, bottom: 8.0, right: 8.0))
+        chartMarker.minimumSize = CGSize(width: 80.0, height: 60.0)
+        barChartView.marker = chartMarker
         
     }
     
@@ -90,7 +94,15 @@ class ViewController: UIViewController, ChartViewDelegate {
         var yVals = [BarChartDataEntry]()
         for i in 1...30 {
             let val = Double(arc4random_uniform(10))
-            yVals.append(BarChartDataEntry(values: [val, val+10], xIndex: i))
+            let entry = BarChartDataEntry(values: [val, val+10], xIndex: i)
+            let timeSheet = Timesheet()
+            timeSheet.numberOfHours = val
+            timeSheet.startTime = NSDate()
+            timeSheet.endTime = NSDate()
+            timeSheet.time = NSDate()
+            timeSheet.place = "Delhi"
+            entry.data = timeSheet
+            yVals.append(entry)
             xVals.append("\(i)")
         }
         let dataSet: BarChartDataSet = BarChartDataSet(yVals: yVals, label: "DataSet")
@@ -98,8 +110,12 @@ class ViewController: UIViewController, ChartViewDelegate {
         dataSet.valueTextColor = UIColor.whiteColor()
         dataSet.barSpace = 0.5
         barChartView.data = BarChartData(xVals: xVals, dataSet: dataSet)
+    
+
     }
 
     
 }
+
+
 
