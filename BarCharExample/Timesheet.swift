@@ -7,3 +7,12 @@
 //
 
 import Foundation
+import UIKit
+
+class Timesheet {
+    var time: NSDate?
+    var startTime: NSDate?
+    var endTime: NSDate?
+    var place: String?
+    var numberOfHours: Double?
+}
