@@ -11,10 +11,8 @@ import UIKit
 
 class YAxisRenderer: ChartYAxisRenderer {
     private var _gridLineBuffer1 = [CGPoint](count: 2, repeatedValue: CGPoint())
-    internal override func renderGridLines(context context: CGContext)
-    {
-        if (!_yAxis.isDrawGridLinesEnabled || !_yAxis.isEnabled)
-        {
+    internal override func renderGridLines(context context: CGContext) {
+        if (!_yAxis.isDrawGridLinesEnabled || !_yAxis.isEnabled) {
             return
         }
         
@@ -22,23 +20,16 @@ class YAxisRenderer: ChartYAxisRenderer {
         
         CGContextSetStrokeColorWithColor(context, _yAxis.gridColor.CGColor)
         CGContextSetLineWidth(context, _yAxis.gridLineWidth)
-        if (_yAxis.gridLineDashLengths != nil)
-        {
-            CGContextSetLineDash(context, _yAxis.gridLineDashPhase, _yAxis.gridLineDashLengths, _yAxis.gridLineDashLengths.count)
-        }
-        else
-        {
-            CGContextSetLineDash(context, 0.0, nil, 0)
-        }
         
+        _yAxis.gridLineDashLengths != nil ? CGContextSetLineDash(context, _yAxis.gridLineDashPhase, _yAxis.gridLineDashLengths, _yAxis.gridLineDashLengths.count) : CGContextSetLineDash(context, 0.0, nil, 0)
+
         let valueToPixelMatrix = transformer.valueToPixelMatrix
         
         var position = CGPoint(x: 0.0, y: 0.0)
         
         // draw the horizontal grid
         CGContextSetLineDash(context, 0.0, nil, 0)
-        for (var i = 1, count = _yAxis.entryCount; i < count; i++)
-        {
+        for (var i = 1, count = _yAxis.entryCount; i < count; i++) {
             position.x = 0.0
             position.y = CGFloat(_yAxis.entries[i])
             position = CGPointApplyAffineTransform(position, valueToPixelMatrix)
@@ -49,11 +40,11 @@ class YAxisRenderer: ChartYAxisRenderer {
             _gridLineBuffer1[1].y = position.y
             CGContextStrokeLineSegments(context, _gridLineBuffer1, 2)
         }
+        
         var position1 = CGPoint(x: 0.0, y: 0.0)
         CGContextSetLineDash(context, _yAxis.gridLineDashPhase, _yAxis.gridLineDashLengths, _yAxis.gridLineDashLengths.count)
-        for (var i = 1, count = _yAxis.entryCount; i < count; i++)
-        {
-            
+
+        for (var i = 1, count = _yAxis.entryCount; i < count; i++) {
             let previousY = CGFloat(_yAxis.entries[i-1])
             let currentY = CGFloat(_yAxis.entries[i])
             
@@ -80,9 +71,6 @@ class YAxisRenderer: ChartYAxisRenderer {
             CGContextStrokeLineSegments(context, _gridLineBuffer1, 2)
         }
         
-        
-        
         CGContextRestoreGState(context)
     }
-
 }
