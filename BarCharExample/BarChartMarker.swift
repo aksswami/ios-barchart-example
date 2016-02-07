@@ -22,8 +22,7 @@ class BarChartMarker: ChartMarker {
     private var _paragraphStyle: NSMutableParagraphStyle?
     private var attributedStr: NSMutableAttributedString?
     
-    internal init(color: UIColor, insets: UIEdgeInsets)
-    {
+    internal init(color: UIColor, insets: UIEdgeInsets) {
         super.init()
         
         self.insets = insets
@@ -35,8 +34,7 @@ class BarChartMarker: ChartMarker {
     
     internal override var size: CGSize { return _size; }
     
-    internal override func draw(context context: CGContext?, point: CGPoint)
-    {
+    internal override func draw(context context: CGContext?, point: CGPoint) {
         _size.width = _size.width + arrowSize.width
         arrowYOffset = _size.height * 0.5 - arrowSize.height * 0.5
         var rightArrow = false
@@ -55,7 +53,6 @@ class BarChartMarker: ChartMarker {
         CGContextBeginPath(context)
         
         if !rightArrow {
-            
             CGContextMoveToPoint(context,
                 rect.origin.x + arrowSize.width + bubbleCornerRadius,
                 rect.origin.y)
@@ -95,8 +92,7 @@ class BarChartMarker: ChartMarker {
                 rect.origin.x + arrowSize.width,
                 rect.origin.y + bubbleCornerRadius)
             CGContextAddArcToPoint(context, rect.origin.x + arrowSize.width, rect.origin.y, rect.origin.x + arrowSize.width + bubbleCornerRadius, rect.origin.y, bubbleCornerRadius)
-        }
-        else {
+        } else {
             rect.origin.x -= size.width
             CGContextMoveToPoint(context,
                 rect.origin.x,
@@ -135,15 +131,11 @@ class BarChartMarker: ChartMarker {
         CGContextRestoreGState(context);
         CGContextSaveGState(context)
         
-        rect.origin.y += self.insets.top
+        rect.origin.y += insets.top
         
-        if !rightArrow {
-            rect.origin.x += self.insets.left
-        }
-        else {
-            rect.origin.x -= self.insets.right
-        }
-        rect.size.height -= self.insets.top + self.insets.bottom
+        !rightArrow ? (rect.origin.x += insets.left) : (rect.origin.x -= insets.right)
+        
+        rect.size.height -= insets.top + insets.bottom
         
         UIGraphicsPushContext(context!)
         attributedStr?.drawInRect(rect)
@@ -152,8 +144,7 @@ class BarChartMarker: ChartMarker {
         CGContextRestoreGState(context)
     }
     
-    internal override func refreshContent(entry entry: ChartDataEntry, highlight: ChartHighlight)
-    {
+    internal override func refreshContent(entry entry: ChartDataEntry, highlight: ChartHighlight) {
         guard let timesheet: Timesheet = entry.data as? Timesheet else {return}
         
         let dayStr = "\(timesheet.time?.stringWithFormat("EEEE - MMMM d, yyyy") ?? "")\n\n"
@@ -195,8 +186,8 @@ class BarChartMarker: ChartMarker {
         attributedStr = attributeString
         
         _labelSize = attributeString.size() ?? CGSizeZero
-        _size.width = _labelSize.width + self.insets.left + self.insets.right
-        _size.height = _labelSize.height + self.insets.top + self.insets.bottom
+        _size.width = _labelSize.width + insets.left + insets.right
+        _size.height = _labelSize.height + insets.top + insets.bottom
         _size.width = max(minimumSize.width, _size.width)
         _size.height = max(minimumSize.height, _size.height)
     }
