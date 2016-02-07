@@ -92,7 +92,8 @@ class BarChartMarker: ChartMarker {
                 rect.origin.x + arrowSize.width,
                 rect.origin.y + bubbleCornerRadius)
             CGContextAddArcToPoint(context, rect.origin.x + arrowSize.width, rect.origin.y, rect.origin.x + arrowSize.width + bubbleCornerRadius, rect.origin.y, bubbleCornerRadius)
-        } else {
+        }
+        else {
             rect.origin.x -= size.width
             CGContextMoveToPoint(context,
                 rect.origin.x,
