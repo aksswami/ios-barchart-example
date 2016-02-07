@@ -52,9 +52,6 @@ class ViewController: UIViewController, ChartViewDelegate {
         xAxis.drawAxisLineEnabled = true
         xAxis.drawLabelsEnabled = true
         
-        
-        
-        
         let leftAxis: ChartYAxis = barChartView.leftAxis
         leftAxis.labelFont = UIFont.systemFontOfSize(10)
         leftAxis.labelCount = 8
@@ -85,7 +82,7 @@ class ViewController: UIViewController, ChartViewDelegate {
         let chartMarker = BarChartMarker.init(color: UIColor.whiteColor(), insets: UIEdgeInsets(top: 8.0, left: 8.0, bottom: 8.0, right: 8.0))
         chartMarker.minimumSize = CGSize(width: 80.0, height: 60.0)
         barChartView.marker = chartMarker
-        
+        barChartView.animate(xAxisDuration: 3.0, yAxisDuration: 3.0)
     }
     
     func barChartData() {
@@ -106,7 +103,9 @@ class ViewController: UIViewController, ChartViewDelegate {
             xVals.append("\(i)")
         }
         let dataSet: BarChartDataSet = BarChartDataSet(yVals: yVals, label: "DataSet")
-        dataSet.colors = [UIColor(red: 0.812, green: 0.200, blue: 0.086, alpha: 1.00), UIColor(red: 0.494, green: 0.133, blue: 0.067, alpha: 1.00)]
+        dataSet.highlightEnabled = false
+        //dataSet.colors = [UIColor(red: 0.812, green: 0.200, blue: 0.086, alpha: 1.00), UIColor(red: 0.494, green: 0.133, blue: 0.067, alpha: 1.00)]
+        dataSet.colors = [UIColor.orangeColor(), UIColor(red: 0.992, green: 0.812, blue: 0.565, alpha: 1.00)]
         dataSet.valueTextColor = UIColor.whiteColor()
         dataSet.barSpace = 0.5
         barChartView.data = BarChartData(xVals: xVals, dataSet: dataSet)
