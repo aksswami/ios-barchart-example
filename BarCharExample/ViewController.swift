@@ -16,15 +16,9 @@ class ViewController: UIViewController, ChartViewDelegate {
         super.viewDidLoad()
         chartViewSetUp()
         barChartData()
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    func chartViewSetUp() {
+    private func chartViewSetUp() {
         barChartView.delegate = self
 
         barChartView.descriptionText = ""
@@ -32,7 +26,6 @@ class ViewController: UIViewController, ChartViewDelegate {
         
         barChartView.drawBarShadowEnabled = false
         barChartView.drawValueAboveBarEnabled = false
-        
         
         barChartView.maxVisibleValueCount = 10
         barChartView.pinchZoomEnabled = false
@@ -85,7 +78,7 @@ class ViewController: UIViewController, ChartViewDelegate {
         barChartView.animate(xAxisDuration: 3.0, yAxisDuration: 3.0)
     }
     
-    func barChartData() {
+    private func barChartData() {
         var xVals = [String]()
         
         var yVals = [BarChartDataEntry]()
@@ -109,11 +102,7 @@ class ViewController: UIViewController, ChartViewDelegate {
         dataSet.valueTextColor = UIColor.whiteColor()
         dataSet.barSpace = 0.5
         barChartView.data = BarChartData(xVals: xVals, dataSet: dataSet)
-    
-
     }
-
-    
 }
 
 
